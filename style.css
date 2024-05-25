@@ -4,3 +4,58 @@
     box-sizing: border-box;
 }
 
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+    background-color: black;
+}
+
+
+/* this is where button are located*/
+
+#buttonArea{
+    height: 15%;
+    width: 100%;
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+
+#clear,#resize,#rgb{
+    flex-grow: 1;
+    width: 1em;
+    height: 3em;
+    border: none;
+}
+
+/*this is where the drawing will be done*/
+
+#drawArea{
+    height: 85%;
+    width: 100%;
+    background-color: yellowgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#center{
+    width: 95%;
+    height: 95%;
+    background-color: gray;
+    display: flex;
+}
+
