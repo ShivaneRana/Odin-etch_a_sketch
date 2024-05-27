@@ -55,7 +55,8 @@ body{
 #center{
     width: 95%;
     height: 95%;
-    background-color: gray;
+    background-color: navy;
     display: flex;
+    flex-wrap: wrap;
 }
 
