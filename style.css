@@ -7,10 +7,11 @@
 body{
     height: 100vh;
     width: 100vw;
-    background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FFFFF0;
+
 }
 
 #main{
@@ -18,7 +19,7 @@ body{
     flex-direction: column;
     height: 50%;
     width: 100%;
-    background-color: black;
+    background-color: #FFFFF0;
 }
 
 
@@ -26,11 +27,12 @@ body{
 
 #buttonArea{
     height: 15%;
-    width: 100%;
-    background-color: pink;
+    width: 95%;
+    background-color: #FFFFF0;
     display: flex;
     justify-content: center;
     align-items: center;
+    align-self: center;
     gap:5px;
 }
 
@@ -39,6 +41,8 @@ body{
     width: 1em;
     height: 3em;
     border: none;
+    background-color: black;
+    color: #FFFFF0;
 }
 
 /*this is where the drawing will be done*/
@@ -46,7 +50,7 @@ body{
 #drawArea{
     height: 85%;
     width: 100%;
-    background-color: yellowgreen;
+    background-color: #FFFFF0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,7 +59,7 @@ body{
 #center{
     width: 95%;
     height: 95%;
-    background-color: navy;
+    background-color: #FFFFF0;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;

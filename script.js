@@ -3,6 +3,7 @@ const resize = document.querySelector("#resize");
 const rgb = document.querySelector("#rgb");
 const center = document.querySelector("#center");
 const outline = document.querySelector("#outline");
+center.style.outline = "0.01px solid"
 
 //this is used to find width and height of the center div
 const computedWidth = center.offsetWidth; 
@@ -20,7 +21,7 @@ for(let i = 0;i<(12*12);i++){
     const div = document.createElement("div");
     div.style.width = `${computedWidth/12}px`;
     div.style.height = `${computedHeight/12}px`;
-    div.style.backgroundColor = "purple";
+    div.style.backgroundColor = "white";
     if(outlineValue === true){
         div.style.outline = "0.01px black solid";
     }else if(outlineValue === false){
@@ -30,7 +31,7 @@ for(let i = 0;i<(12*12);i++){
     
     //clear grid when clear button is clicked
     clear.addEventListener("click",() =>{
-        div.style.backgroundColor = "purple";
+        div.style.backgroundColor = "white";
     })
     
     //this is for changing the color of the div when mouse hover on it
@@ -63,13 +64,13 @@ function changeGridSize(gridSize){
         const div = document.createElement("div");
         div.style.width = `${computedWidth/gridSize}px`;
         div.style.height = `${computedHeight/gridSize}px`;
-        div.style.backgroundColor = "purple";
+        div.style.backgroundColor = "white";
         div.style.outline = "0.01px black solid";
         div.style.flexGrow = "1";
 
         //clear grid when clear button is clicked
         clear.addEventListener("click",() =>{
-            div.style.backgroundColor = "purple";
+            div.style.backgroundColor = "white";
         })
 
         //this is for changing the color of the div when mouse hover on it
@@ -93,6 +94,13 @@ function changeColor(){
     green = green1;
     blue = blue1;
     color = `rgb(${red},${green},${blue})`;
+    rgb.style.backgroundColor = color;
+    
+    if(red1 > 256 || green1 > 256 || blue1 > 256){
+        rgb.style.color = "black";
+    }else{
+        rgb.style.color = "white";
+    }
 }
 
 // Outline button click event
