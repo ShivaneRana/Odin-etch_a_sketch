@@ -58,5 +58,6 @@ body{
     background-color: navy;
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
