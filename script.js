@@ -16,12 +16,6 @@ let color = `rgb(${red},${green},${blue})`;
 
 //default grid size
 for(let i = 0;i<(12*12);i++){
-
-    //display that current grid is default
-    if(i === 1){    
-    console.log("current grid size is set to default:  "+12);
-    }
-
     const div = document.createElement("div");
     div.style.width = `${computedWidth/12}px`;
     div.style.height = `${computedHeight/12}px`;
@@ -58,7 +52,6 @@ clear.addEventListener("click",() =>{
 
 //this function change the size of the grid
 function changeGridSize(gridSize){
-    console.log("Current custom grid size:  "+gridSize);
     for(let i = 0;i<(gridSize*gridSize);i++){
         const div = document.createElement("div");
         div.style.width = `${computedWidth/gridSize}px`;
