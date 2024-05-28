@@ -21,7 +21,7 @@ for(let i = 0;i<(12*12);i++){
     const div = document.createElement("div");
     div.style.width = `${computedWidth/12}px`;
     div.style.height = `${computedHeight/12}px`;
-    div.style.backgroundColor = "white";
+    div.style.backgroundColor = "#FFFFF0";
     if(outlineValue === true){
         div.style.outline = "0.01px black solid";
     }else if(outlineValue === false){
@@ -31,7 +31,7 @@ for(let i = 0;i<(12*12);i++){
     
     //clear grid when clear button is clicked
     clear.addEventListener("click",() =>{
-        div.style.backgroundColor = "white";
+        div.style.backgroundColor = "#FFFFF0";
     })
     
     //this is for changing the color of the div when mouse hover on it
@@ -64,13 +64,13 @@ function changeGridSize(gridSize){
         const div = document.createElement("div");
         div.style.width = `${computedWidth/gridSize}px`;
         div.style.height = `${computedHeight/gridSize}px`;
-        div.style.backgroundColor = "white";
+        div.style.backgroundColor = "#FFFFF0";
         div.style.outline = "0.01px black solid";
         div.style.flexGrow = "1";
 
         //clear grid when clear button is clicked
         clear.addEventListener("click",() =>{
-            div.style.backgroundColor = "white";
+            div.style.backgroundColor = "#FFFFF0";
         })
 
         //this is for changing the color of the div when mouse hover on it
@@ -95,7 +95,7 @@ function changeColor(){
     blue = blue1;
     color = `rgb(${red},${green},${blue})`;
     rgb.style.backgroundColor = color;
-    
+
     if(red1 > 256 || green1 > 256 || blue1 > 256){
         rgb.style.color = "black";
     }else{
@@ -106,12 +106,14 @@ function changeColor(){
 // Outline button click event
 outline.addEventListener("click", () => {
     outlineValue = !outlineValue;
-    outline.textContent = outlineValue ? "Outline:On" : "Outline:Off";
+    outline.textContent = outlineValue ? "Outline:Off" : "Outline:On";
     updateOutlines();
 });
 
 function updateOutlines() {
     const divs = center.querySelectorAll("div");
+    
+    //I still dont know how this works lol
     divs.forEach(div => {
         div.style.outline = outlineValue ? "0.01px black solid" : "";
     });
