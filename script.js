@@ -13,6 +13,7 @@ let red = 0;
 let green = 0;
 let blue = 0;
 let color = `rgb(${red},${green},${blue})`;
+let outlineValue = true;
 
 //default grid size
 for(let i = 0;i<(12*12);i++){
@@ -20,7 +21,17 @@ for(let i = 0;i<(12*12);i++){
     div.style.width = `${computedWidth/12}px`;
     div.style.height = `${computedHeight/12}px`;
     div.style.backgroundColor = "purple";
-    div.style.outline = "0.01px black solid";
+    if(outlineValue === true){
+        div.style.outline = "0.01px black solid";
+    }else if(outlineValue === false){
+        div.style.outline = "";
+    }
+    div.style.flexGrow = "1";
+    
+    //clear grid when clear button is clicked
+    clear.addEventListener("click",() =>{
+        div.style.backgroundColor = "purple";
+    })
     
     //this is for changing the color of the div when mouse hover on it
     div.addEventListener("mouseover",() =>{
@@ -45,19 +56,21 @@ resize.addEventListener("click",() => {
     }
 })
 
-//clear grid when clear button is clicked
-clear.addEventListener("click",() =>{
-    center.textContent = "";
-})
-
 //this function change the size of the grid
 function changeGridSize(gridSize){
     for(let i = 0;i<(gridSize*gridSize);i++){
+
         const div = document.createElement("div");
         div.style.width = `${computedWidth/gridSize}px`;
         div.style.height = `${computedHeight/gridSize}px`;
         div.style.backgroundColor = "purple";
         div.style.outline = "0.01px black solid";
+        div.style.flexGrow = "1";
+
+        //clear grid when clear button is clicked
+        clear.addEventListener("click",() =>{
+            div.style.backgroundColor = "purple";
+        })
 
         //this is for changing the color of the div when mouse hover on it
         div.addEventListener("mouseover",() =>{
@@ -82,16 +95,16 @@ function changeColor(){
     color = `rgb(${red},${green},${blue})`;
 }
 
-//
+// Outline button click event
+outline.addEventListener("click", () => {
+    outlineValue = !outlineValue;
+    outline.textContent = outlineValue ? "Outline:On" : "Outline:Off";
+    updateOutlines();
+});
 
-outline.addEventListener("click",() =>{
-    if(outline.textContent === "Outline:On"){
-        outline.textContent = "Outline:Off";
-        outlineToggle = "";
-    }else if(outline.textContent === "Outline:Off"){
-        outline.textContent = "Outline:On";
-        outlineToggle = "0.01px black solid";
-    }
-})
-
-//function for toogling outline
+function updateOutlines() {
+    const divs = center.querySelectorAll("div");
+    divs.forEach(div => {
+        div.style.outline = outlineValue ? "0.01px black solid" : "";
+    });
+}
