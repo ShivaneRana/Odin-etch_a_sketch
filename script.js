@@ -2,29 +2,37 @@ const clear = document.querySelector("#clear");
 const resize = document.querySelector("#resize");
 const rgb = document.querySelector("#rgb");
 const center = document.querySelector("#center");
+const outline = document.querySelector("#outline");
 
 //this is used to find width and height of the center div
 const computedWidth = center.offsetWidth; 
 const computedHeight = center.offsetHeight; 
 
 //this is used to change color of div
-const color = "black";
+let red = 0;
+let green = 0;
+let blue = 0;
+let color = `rgb(${red},${green},${blue})`;
 
 //default grid size
 for(let i = 0;i<(12*12);i++){
+
+    //display that current grid is default
     if(i === 1){    
     console.log("current grid size is set to default:  "+12);
     }
+
     const div = document.createElement("div");
-    div.style.width = `${computedWidth/12-0.01}px`;
-    div.style.height = `${computedHeight/12-0.01}px`;
+    div.style.width = `${computedWidth/12}px`;
+    div.style.height = `${computedHeight/12}px`;
     div.style.backgroundColor = "purple";
-    div.style.border = "0.05px black solid";
+    div.style.outline = outlineToggle;
     
     //this is for changing the color of the div when mouse hover on it
     div.addEventListener("mouseover",() =>{
         div.style.backgroundColor = color;
     })
+    
     center.append(div);
 }
 
@@ -49,14 +57,14 @@ clear.addEventListener("click",() =>{
 })
 
 //this function change the size of the grid
-function changeGridSize(gridSize){      
-    console.log("custom grid size:  "+gridSize);   
+function changeGridSize(gridSize){
+    console.log("Current custom grid size:  "+gridSize);
     for(let i = 0;i<(gridSize*gridSize);i++){
         const div = document.createElement("div");
-        div.style.width = `${computedWidth/gridSize-0.01}px`;
-        div.style.height = `${computedHeight/gridSize-0.01}px`;
+        div.style.width = `${computedWidth/gridSize}px`;
+        div.style.height = `${computedHeight/gridSize}px`;
         div.style.backgroundColor = "purple";
-        div.style.border = "0.05px black solid";
+        div.style.outline = outlineToggle;
 
         //this is for changing the color of the div when mouse hover on it
         div.addEventListener("mouseover",() =>{
@@ -65,3 +73,32 @@ function changeGridSize(gridSize){
         center.append(div);
     }
 }
+
+
+
+rgb.addEventListener("click",changeColor);
+
+//function for changing color
+function changeColor(){
+    let red1 = Math.floor(prompt("Enter rgb value for red","Enter value from 0-255"));
+    let green1 = Math.floor(prompt("Enter rgb value for green","Enter value from 0-255"));
+    let blue1 = Math.floor(prompt("Enter rgb value for blue","Enter value from 0-255"));
+    red = red1;
+    green = green1;
+    blue = blue1;
+    color = `rgb(${red},${green},${blue})`;
+}
+
+//
+
+outline.addEventListener("click",() =>{
+    if(outline.textContent === "Outline:On"){
+        outline.textContent = "Outline:Off";
+        outlineToggle = "";
+    }else if(outline.textContent === "Outline:Off"){
+        outline.textContent = "Outline:On";
+        outlineToggle = "0.01px black solid";
+    }
+})
+
+//function for toogling outline
