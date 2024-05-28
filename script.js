@@ -26,7 +26,7 @@ for(let i = 0;i<(12*12);i++){
     div.style.width = `${computedWidth/12}px`;
     div.style.height = `${computedHeight/12}px`;
     div.style.backgroundColor = "purple";
-    div.style.outline = outlineToggle;
+    div.style.outline = "0.01px black solid";
     
     //this is for changing the color of the div when mouse hover on it
     div.addEventListener("mouseover",() =>{
@@ -64,7 +64,7 @@ function changeGridSize(gridSize){
         div.style.width = `${computedWidth/gridSize}px`;
         div.style.height = `${computedHeight/gridSize}px`;
         div.style.backgroundColor = "purple";
-        div.style.outline = outlineToggle;
+        div.style.outline = "0.01px black solid";
 
         //this is for changing the color of the div when mouse hover on it
         div.addEventListener("mouseover",() =>{
