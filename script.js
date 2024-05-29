@@ -87,9 +87,20 @@ rgb.addEventListener("click",changeColor);
 
 //function for changing color
 function changeColor(){
-    let red1 = Math.floor(prompt("Enter rgb value for red (0-255)"));
-    let green1 = Math.floor(prompt("Enter rgb value for green (0-255)"));
-    let blue1 = Math.floor(prompt("Enter rgb value for blue (0-255)"));
+    let red1;
+    let green1;
+    let blue1;
+    let rgb1 = prompt("Enter rgb value from [0 to 255] for red,green,blue (seprate value by space).");
+    const arr = rgb1.split(" ");
+    for(let i = 0;i<arr.length;i++){
+        if(i === 0){
+        red1 = +arr[i]
+        }else if(i === 1){
+        green1 = +arr[i];
+        }else if(i === 2){
+        blue1 = +arr[i];
+        }
+    }
 
     if(red1 > 256 || green1 > 256 || blue1 > 256 || red1 < 0 || green1 < 0 || blue1 < 0){
         alert("Entering of value of more than 255 has resulted in default color being choosen")
@@ -98,8 +109,6 @@ function changeColor(){
         blue = 0;
         color = `rgb(${red},${green},${blue})`;
         rgb.style.backgroundColor = color;
-    }else if(typeof red1 === "string"){
-
     }
     else{
         red = red1;
