@@ -92,12 +92,16 @@ function changeColor(){
     let blue1 = Math.floor(prompt("Enter rgb value for blue","Enter value from 0-255"));
 
     if(red1 > 256 || green1 > 256 || blue1 > 256 || red1 < 0 || green1 < 0 || blue1 < 0){
+        alert("Entering of value of more than 255 has resulted in default color being choosen")
         red = 0;
         green = 0        
         blue = 0;
         color = `rgb(${red},${green},${blue})`;
         rgb.style.backgroundColor = color;
-    }else{
+    }else if(typeof red1 === "string"){
+        
+    }
+    else{
         red = red1;
         green = green1;
         blue = blue1;
