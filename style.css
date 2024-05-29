@@ -18,9 +18,9 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 50%;
-    width: 100%;
-    background-color: #FFFFF0;
+    height: 492px;
+    width: 492px;
+    background-color:#FFFFF0;
 }
 
 
@@ -75,4 +75,52 @@ body{
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
+}
+
+/* #FFFFF0 */
+
+/* apply when below 355px width*/
+@media (max-width:355px){
+    #main{
+        height: 300px;
+        width: 300px;
+    }
+
+    #heading{
+        font-size: 1.5em;
+    }
+
+    #clear,#resize,#rgb,#outline{
+        flex-grow: 1;
+        width: 1em;
+        height: 2em;
+        border: none;
+        background-color: black;
+        color: #FFFFF0;
+    }
+}
+
+/* apply when below 492px width  */
+@media (max-width:492px){
+    #main{
+        height: 352px;
+        width: 352px;
+    }
+}
+
+/* apply at more than 800px width */
+@media (min-width:800px){
+    #main{
+        width: 600px;
+        height: 600px;
+    }
+}
+
+
+/* apply at more than 1000px width */
+@media (min-width:1000px){
+    #main{
+        width: 680px;
+        height: 620px;
+    }
 }
