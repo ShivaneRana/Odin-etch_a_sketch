@@ -90,16 +90,19 @@ function changeColor(){
     let red1 = Math.floor(prompt("Enter rgb value for red","Enter value from 0-255"));
     let green1 = Math.floor(prompt("Enter rgb value for green","Enter value from 0-255"));
     let blue1 = Math.floor(prompt("Enter rgb value for blue","Enter value from 0-255"));
-    red = red1;
-    green = green1;
-    blue = blue1;
-    color = `rgb(${red},${green},${blue})`;
-    rgb.style.backgroundColor = color;
 
-    if(red1 > 256 || green1 > 256 || blue1 > 256){
-        rgb.style.color = "black";
+    if(red1 > 256 || green1 > 256 || blue1 > 256 || red1 < 0 || green1 < 0 || blue1 < 0){
+        red = 0;
+        green = 0        
+        blue = 0;
+        color = `rgb(${red},${green},${blue})`;
+        rgb.style.backgroundColor = color;
     }else{
-        rgb.style.color = "white";
+        red = red1;
+        green = green1;
+        blue = blue1;
+        color = `rgb(${red},${green},${blue})`;
+        rgb.style.backgroundColor = color;
     }
 }
 
@@ -113,7 +116,7 @@ outline.addEventListener("click", () => {
 function updateOutlines() {
     const divs = center.querySelectorAll("div");
     
-    //I still dont know how this works lol
+    //dont know how this works lol
     divs.forEach(div => {
         div.style.outline = outlineValue ? "0.01px black solid" : "";
     });
