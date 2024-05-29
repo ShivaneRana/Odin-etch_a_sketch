@@ -17,9 +17,20 @@ body{
 #main{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 50%;
     width: 100%;
     background-color: #FFFFF0;
+}
+
+
+/*this is heading*/
+
+#heading{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    font-size: 3em;
 }
 
 
@@ -36,6 +47,7 @@ body{
     gap:5px;
 }
 
+
 #clear,#resize,#rgb,#outline{
     flex-grow: 1;
     width: 1em;
@@ -44,6 +56,7 @@ body{
     background-color: black;
     color: #FFFFF0;
 }
+
 
 /*this is where the drawing will be done*/
 
